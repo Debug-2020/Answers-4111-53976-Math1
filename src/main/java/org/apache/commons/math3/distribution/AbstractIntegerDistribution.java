@@ -129,12 +129,12 @@ public abstract class AbstractIntegerDistribution implements IntegerDistribution
         if (chebyshevApplies) {
             double k = FastMath.sqrt((1.0 - p) / p);
             double tmp = mu - k * sigma;
-            if (tmp > lower) {
+            if (tmp < lower) {
                 lower = ((int) Math.ceil(tmp)) - 1;
             }
             k = 1.0 / k;
             tmp = mu + k * sigma;
-            if (tmp < upper) {
+            if (tmp > upper) {
                 upper = ((int) Math.ceil(tmp)) - 1;
             }
         }
